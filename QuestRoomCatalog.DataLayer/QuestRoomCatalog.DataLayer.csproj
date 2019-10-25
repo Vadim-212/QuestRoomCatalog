@@ -64,9 +64,9 @@
     <Compile Include="Entities\AspNetUserClaims.cs" />
     <Compile Include="Entities\AspNetUserLogins.cs" />
     <Compile Include="Entities\AspNetUsers.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Entities\C__MigrationHistory.cs" />
     <Compile Include="Entities\Model1.cs" />
+    <Compile Include="Entities\Model1Initializer.cs" />
     <Compile Include="Migrations\201909261333015_First.cs" />
     <Compile Include="Migrations\201909261333015_First.Designer.cs">
       <DependentUpon>201909261333015_First.cs</DependentUpon>

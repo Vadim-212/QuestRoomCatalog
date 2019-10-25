@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -307,6 +308,10 @@
     <ProjectReference Include="..\QuestRoomCatalog.BusinessLayer\QuestRoomCatalog.BusinessLayer.csproj">
       <Project>{85caf0cd-8b4b-4a49-8435-23ff59a6ff48}</Project>
       <Name>QuestRoomCatalog.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuestRoomCatalog.DataLayer\QuestRoomCatalog.DataLayer.csproj">
+      <Project>{ADDB917E-86A0-4889-A3F8-EF08D6B18F09}</Project>
+      <Name>QuestRoomCatalog.DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
