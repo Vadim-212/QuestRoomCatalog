@@ -228,6 +228,10 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\QuestsLogosViewModel.cs" />
+    <Compile Include="Models\QuestsRoomsModel.cs" />
+    <Compile Include="Models\RatingModel.cs" />
+    <Compile Include="Models\RolesModel.cs" />
+    <Compile Include="Models\UsersModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
