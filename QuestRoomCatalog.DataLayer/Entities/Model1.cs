@@ -63,6 +63,8 @@ namespace QuestRoomCatalog.DataLayer
                 .WillCascadeOnDelete(false);
         }
 
-        public System.Data.Entity.DbSet<QuestRoomCatalog.QuestsLogosViewModel> QuestsLogosViewModels { get; set; }
+        //public System.Data.Entity.DbSet<QuestRoomCatalog.QuestsLogosViewModel> QuestsLogosViewModels { get; set; }
+
+        //public System.Data.Entity.DbSet<QuestRoomCatalog.Models.QuestsRoomsModel> QuestsRoomsModels { get; set; }
     }
 }

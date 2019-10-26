@@ -17,85 +17,31 @@ namespace QuestRoomCatalog.Controllers
         {
             this.questLogosBO = questLogosBO;
         }
-        // GET: QuestLogos
         public ActionResult Index()
         {
-            return View();
+            List<QuestsLogosViewModel> logos = AutoMapper<IEnumerable<QuestsLogosBO>, List<QuestsLogosViewModel>>.Map(questLogosBO.GetAll);
+            return View(logos);
         }
 
-        // GET: QuestLogos/Details/5
-        public ActionResult Details(int id)
+        public ActionResult CreateEdit(int? id = 0)
         {
-            return View();
+            QuestsLogosViewModel logo = AutoMapper<QuestsLogosBO, QuestsLogosViewModel>.Map(questLogosBO.Get, (int)id);
+            return View(logo);
         }
 
-        // GET: QuestLogos/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: QuestLogos/Create
         [HttpPost]
-        public ActionResult Create(QuestsLogosViewModel collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateEdit(QuestsLogosViewModel questLogo)
         {
-            try
-            {
-                var bo = AutoMapper<QuestsLogosViewModel, QuestsLogosBO>
-                    .Map(collection);
-                
-                questLogosBO.CreateOrUpdate(bo);
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            QuestsLogosBO oldLogo = AutoMapper<QuestsLogosViewModel, QuestsLogosBO>.Map(questLogo);
+            questLogosBO.CreateOrUpdate(oldLogo);
+            return RedirectToAction("Index", "QuestLogos");
         }
 
-        // GET: QuestLogos/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: QuestLogos/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: QuestLogos/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: QuestLogos/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            questLogosBO.Delete(id);
+            return RedirectToAction("Index", "QuestLogos");
         }
     }
 }
