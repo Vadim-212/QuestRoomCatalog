@@ -8,6 +8,11 @@ namespace QuestRoomCatalog.BusinessLayer.Helpers
 {
     public interface ICrud<T> where T : class
     {
-        void Create(T obj);
+        void CreateOrUpdate(T obj);
+        void Delete(int id);
+        T Get(int id);
+        IEnumerable<T> GetAll();
+        void Save();
+        void Dispose();
     }
 }

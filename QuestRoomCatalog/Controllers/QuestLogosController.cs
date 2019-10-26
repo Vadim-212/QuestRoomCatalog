@@ -43,8 +43,8 @@ namespace QuestRoomCatalog.Controllers
             {
                 var bo = AutoMapper<QuestsLogosViewModel, QuestsLogosBO>
                     .Map(collection);
-
-                questLogosBO.Create(bo);
+                
+                questLogosBO.CreateOrUpdate(bo);
 
                 return RedirectToAction("Index");
             }

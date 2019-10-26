@@ -12,6 +12,10 @@ namespace QuestRoomCatalog.DataLayer.UnitOfWork
         private Model1 db;
         private bool disposed = false;
         Repository<QuestsLogos> _questsLogosUowRepository;
+        Repository<Roles> _rolesUowRepository;
+        Repository<Rating> _ratingUowRepository;
+        Repository<Users> _usersUowRepository;
+        Repository<QuestsRooms> _questsRoomsUowRepository;
         //Repository<T> _genericRepository;
 
         public UnitOfWork()
@@ -34,7 +38,9 @@ namespace QuestRoomCatalog.DataLayer.UnitOfWork
         {
             get
             {
-                throw new NotImplementedException();
+                if (this._rolesUowRepository == null)
+                    _rolesUowRepository = new Repository<Roles>(db);
+                return _rolesUowRepository;
             }
         }
 
@@ -42,7 +48,9 @@ namespace QuestRoomCatalog.DataLayer.UnitOfWork
         {
             get
             {
-                throw new NotImplementedException();
+                if (this._ratingUowRepository == null)
+                    _ratingUowRepository = new Repository<Rating>(db);
+                return _ratingUowRepository;
             }
         }
 
@@ -50,7 +58,9 @@ namespace QuestRoomCatalog.DataLayer.UnitOfWork
         {
             get
             {
-                throw new NotImplementedException();
+                if (this._usersUowRepository == null)
+                    _usersUowRepository = new Repository<Users>(db);
+                return _usersUowRepository;
             }
         }
 
@@ -58,61 +68,11 @@ namespace QuestRoomCatalog.DataLayer.UnitOfWork
         {
             get
             {
-                throw new NotImplementedException();
+                if (this._questsRoomsUowRepository == null)
+                    _questsRoomsUowRepository = new Repository<QuestsRooms>(db);
+                return _questsRoomsUowRepository;
             }
         }
-
-        //public Repository<Books> BookUowRepository
-        //{
-        //    get
-        //    {
-        //        if (this._bookUowRepository == null)
-        //            _bookUowRepository = new Repository<Books>(db);
-        //        return _bookUowRepository;
-        //    }
-        //}
-
-        //public Repository<User> UserUowRepository
-        //{
-        //    get
-        //    {
-        //        if (this._userUowRepository == null)
-        //            _userUowRepository = new Repository<User>(db);
-        //        return _userUowRepository;
-        //    }
-        //}
-
-        //public Repository<Rent> RentUowRepository
-        //{
-        //    get
-        //    {
-
-        //        if (this._rentUowRepository == null)
-        //            _rentUowRepository = new Repository<Rent>(db);
-        //        return _rentUowRepository;
-        //    }
-        //}
-
-        //public Repository<Genre> GenreUowRepository
-        //{
-        //    get
-        //    {
-
-        //        if (this._genreUowRepository == null)
-        //            _genreUowRepository = new Repository<Genre>(db);
-        //        return _genreUowRepository;
-        //    }
-        //}
-
-        //public Repository<T> GenericUowRepository
-        //{
-        //    get
-        //    {
-        //        if (this._genericRepository == null)
-        //            _genericRepository = new Repository<T>(db);
-        //        return _genericRepository;
-        //    }
-        //}
 
         public void Save()
         {

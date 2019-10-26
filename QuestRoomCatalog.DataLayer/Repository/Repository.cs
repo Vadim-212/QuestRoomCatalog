@@ -37,7 +37,7 @@ namespace DataLayer.Repositories
 
         public T Get(int? id)
         {
-            throw new NotImplementedException();
+            return table.Find(id);
         }
 
         public IEnumerable<T> GetAll()

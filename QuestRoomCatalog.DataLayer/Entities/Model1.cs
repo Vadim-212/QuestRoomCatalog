@@ -62,5 +62,7 @@ namespace QuestRoomCatalog.DataLayer
                 .HasForeignKey(e => e.RoleId)
                 .WillCascadeOnDelete(false);
         }
+
+        public System.Data.Entity.DbSet<QuestRoomCatalog.QuestsLogosViewModel> QuestsLogosViewModels { get; set; }
     }
 }
