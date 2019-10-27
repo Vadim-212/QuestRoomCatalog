@@ -12,6 +12,7 @@ namespace QuestRoomCatalog
         public int QuestRoomId { get; set; }
 
         //[Required]
+        //[MaxLength(128)]
         public byte[] Image { get; set; }
 
         public bool IsLogo { get; set; }

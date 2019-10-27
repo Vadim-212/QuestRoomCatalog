@@ -22,7 +22,7 @@ namespace QuestRoomCatalog
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            System.Data.Entity.Database.SetInitializer(BusinessLayer.InitializerClass.Initialize());
+            //System.Data.Entity.Database.SetInitializer(BusinessLayer.InitializerClass.Initialize());
             NinjectModule ninjectBO = new NinjectUnitOfWork("Model1");
             NinjectModule ninjectWeb = new NinjectHelper();
 

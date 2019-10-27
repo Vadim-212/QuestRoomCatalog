@@ -13,10 +13,12 @@ namespace QuestRoomCatalog.Controllers
     public class RatingController : Controller
     {
         ICrud<RatingBO> ratingBO;
+        ICrud<QuestsRoomsBO> questRoomsBO;
 
-        public RatingController(ICrud<RatingBO> ratingBO)
+        public RatingController(ICrud<RatingBO> ratingBO, ICrud<QuestsRoomsBO> questRoomsBO)
         {
             this.ratingBO = ratingBO;
+            this.questRoomsBO = questRoomsBO;
         }
 
         public ActionResult Index()
@@ -28,6 +30,21 @@ namespace QuestRoomCatalog.Controllers
         public ActionResult CreateEdit(int? id = 0)
         {
             RatingModel rating = AutoMapper<RatingBO, RatingModel>.Map(ratingBO.Get, (int)id);
+
+            List<QuestsRoomsBO> rooms = questRoomsBO.GetAll().ToList();
+            List<SelectListItem> sli = new List<SelectListItem>();
+            foreach (var item in rooms)
+            {
+                sli.Add(new SelectListItem()
+                {
+                    Selected = false,
+                    Text = item.Name,
+                    Value = item.Id.ToString()
+                });
+            }
+            sli[0].Selected = true;
+            ViewBag.QuestRoomId = sli;
+
             return View(rating);
         }
 
@@ -36,6 +53,7 @@ namespace QuestRoomCatalog.Controllers
         public ActionResult CreateEdit(RatingModel rating)
         {
             RatingBO oldRating = AutoMapper<RatingModel, RatingBO>.Map(rating);
+            oldRating.QuestRoomId = int.Parse(Request.Form["QuestRoomId"]);
             ratingBO.CreateOrUpdate(oldRating);
             return RedirectToAction("Index", "Rating");
         }

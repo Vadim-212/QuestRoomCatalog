@@ -7,34 +7,18 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateEdit")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TimeForQuest)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaxGamer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MinGamer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MinAgeGamer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FearLevel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ComplexityLevel)
-        </th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Time for quest</th>
+        <th>Max gamer</th>
+        <th>Min gamer</th>
+        <th>Min age gamer</th>
+        <th>Fear level</th>
+        <th>Complexity level</th>
         <th></th>
     </tr>
 
@@ -65,8 +49,7 @@
             @Html.DisplayFor(modelItem => item.ComplexityLevel)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Edit", "CreateEdit", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>

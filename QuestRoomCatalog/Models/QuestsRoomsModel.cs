@@ -23,13 +23,14 @@ namespace QuestRoomCatalog.Models
         public int MinGamer { get; set; }
 
         [Required]
-        [Range(18,55)]
+        [Range(12,55)]
         public int MinAgeGamer { get; set; }
 
         [Required]
-        [Range(1,10,ErrorMessage = "Поле \"Уровень страха\" должно иметь значение от 1 до 10")]
+        [Range(1,5,ErrorMessage = "Поле \"Уровень страха\" должно иметь значение от 1 до 5")]
         public int FearLevel { get; set; }
 
+        [Range(1,5)]
         public int ComplexityLevel { get; set; }
     }
 }

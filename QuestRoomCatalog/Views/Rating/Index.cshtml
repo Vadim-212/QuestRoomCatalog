@@ -1,4 +1,4 @@
-﻿@model IEnumerable<QuestRoomCatalog.QuestsLogosViewModel>
+﻿@model IEnumerable<QuestRoomCatalog.Models.RatingModel>
 
 @{
     ViewBag.Title = "Index";
@@ -11,9 +11,8 @@
 </p>
 <table class="table">
     <tr>
-        <th>Quest Room</th>
-        <th>Image</th>
-        <th>Logo</th>
+        <th>Quest room</th>
+        <th>Rating level</th>
         <th></th>
     </tr>
 
@@ -23,16 +22,8 @@
             @Html.DisplayFor(modelItem => item.QuestRoomName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Img)
+            @Html.DisplayFor(modelItem => item.RatingLevel)
         </td>
-        @if(item.IsLogo)
-        {
-            <td>Logo</td>
-        }
-        else
-        {
-            <td></td>
-        }
         <td>
             @Html.ActionLink("Edit", "CreateEdit", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })

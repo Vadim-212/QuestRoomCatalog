@@ -22,8 +22,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("О программе", "About", "Home")</li>
+                    @*<li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
+        <li>@Html.ActionLink("О программе", "About", "Home")</li>
+        <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>*@
+                    <li>@Html.ActionLink("Quest rooms", "Index", "QuestRooms")</li>
+                    <li>@Html.ActionLink("Quest logos", "Index", "QuestLogos")</li>
+                    <li>@Html.ActionLink("Ratings", "Index", "Rating")</li>
                     <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
