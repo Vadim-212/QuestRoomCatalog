@@ -12,6 +12,6 @@ namespace QuestRoomCatalog.BusinessLayer.BusinessObjects
 
         public int RatingLevel { get; set; }
 
-        public QuestsRoomsBO QuestsRooms { get; set; }
+        //public QuestsRoomsBO QuestsRooms { get; set; }
     }
 }

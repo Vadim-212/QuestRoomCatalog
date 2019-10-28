@@ -50,7 +50,7 @@ namespace QuestRoomCatalog.BusinessLayer.Helpers
 
         public IEnumerable<RatingBO> GetAll()
         {
-            return AutoMapper<IEnumerable<Rating>, List<RatingBO>>.Map(Db.RatingUowRepository.GetAll);
+            return AutoMapper<IEnumerable<Rating>, IEnumerable<RatingBO>>.Map(Db.RatingUowRepository.GetAll);
         }
 
         public void Save()

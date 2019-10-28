@@ -24,6 +24,11 @@ namespace QuestRoomCatalog.Controllers
         public ActionResult Index()
         {
             List<RatingModel> ratings = AutoMapper<IEnumerable<RatingBO>, List<RatingModel>>.Map(ratingBO.GetAll);
+            List<QuestsRoomsBO> rooms = questRoomsBO.GetAll().ToList();
+            foreach (var item in ratings)
+            {
+                item.QuestRoomName = rooms.Where(x => x.Id == item.QuestRoomId).First().Name;
+            }
             return View(ratings);
         }
 
